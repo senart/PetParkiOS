@@ -8,6 +8,8 @@
 
 import UIKit
 
+public let APILink = "http://petpark.azurewebsites.net"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Preferences.reset()  // FIX: delete this
+        Preferences.registerDefaults()
+        checkForUserDetails()
+        
         return true
     }
 
@@ -41,6 +48,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func checkForUserDetails(){  //If we have the following data we will be redirected, otherwise we go to SignInViewController (default)
+        if !Preferences.tokenID.isEmpty {
+            Redirect.toViewControllerWithIdentifier("Reveal", ofType: SWRevealViewController(), animated: false)
+        }
+    }
+    
+    struct Redirect { //Handles redictions with a generic function. There is an optional completion handler if the created view is needed
+        static func toViewControllerWithIdentifier<T: UIViewController>(identifier: String, ofType: T, animated: Bool = true, completionHandler: ((T)->Void)? = nil) {
+            let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let rootVC = (UIApplication.sharedApplication().delegate as! AppDelegate).window!.rootViewController as! UINavigationController
+            let targetVC = storyboard.instantiateViewControllerWithIdentifier(identifier) as? T
+            if let targetVC = targetVC {
+                rootVC.pushViewController(targetVC, animated: animated)
+                completionHandler?(targetVC)
+            }
+        }
+    }
 
 }
 

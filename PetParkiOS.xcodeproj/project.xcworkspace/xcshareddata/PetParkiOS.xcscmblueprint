@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "17839C245DD481311003DD963AD6935191999977",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "17839C245DD481311003DD963AD6935191999977" : 0,
+    "270EC97CA8D2A472A12B165F186AF5A926D46615" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "32656858-143F-48D2-B6C9-69924CC452B5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "17839C245DD481311003DD963AD6935191999977" : "PetParkiOS\/",
+    "270EC97CA8D2A472A12B165F186AF5A926D46615" : "eDynamix\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PetParkiOS",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PetParkiOS.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/senart\/PetParkiOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "17839C245DD481311003DD963AD6935191999977"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "edyn-git-01.corp.edynamix.co.uk:SiSo\/eDynamix.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "270EC97CA8D2A472A12B165F186AF5A926D46615"
+    }
+  ]
+}
