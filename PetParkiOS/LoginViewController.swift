@@ -16,10 +16,17 @@ class LoginViewController: UIViewController
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var noAccountLabel: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
     
     private let operationQueue = OperationQueue()
     
     @IBAction func loginTapped(sender: UIButton) {
+        
+        emailTextField.text = EMAIL  // TODO: REMOVE THIS
+        passwordTextField.text = PASSWORD
+        
+        //view.endEditing(true)
+        loginButton.enabled = false
         if validateFields() {
             let generateTokenOperation = GenerateTokenOperation(email: emailTextField.text!, password: passwordTextField.text!)
             generateTokenOperation.delegate = self
@@ -61,11 +68,14 @@ class LoginViewController: UIViewController
 
 extension LoginViewController: GenerateTokenOperationDelegate {
     func didGenerateToken(token: Token) {
-        Preferences.tokenID = token.tokenID
-        performSegueWithIdentifier("showRevealViewController", sender: self)
+        dispatch_async(dispatch_get_main_queue()) {
+            self.loginButton.enabled = true
+            Preferences.tokenID = token.tokenID
+            self.performSegueWithIdentifier("showRevealViewController", sender: self)
+        }
     }
     
     func accessDenied() {
-        print(":(")
+        loginButton.enabled = true
     }
 }
