@@ -8,11 +8,17 @@
 
 import Foundation
 
-struct Token: Decodable
+final class Token: Decodable
 {
     let tokenID: String
     let username: String
     let profilePic: String?
+    
+    init(tokenID: String, username: String, profilePic: String?) {
+        self.tokenID = tokenID
+        self.username = username
+        self.profilePic = profilePic
+    }
     
     static func decodeJSON(j: JSON) throws -> Token {
         return Token(
