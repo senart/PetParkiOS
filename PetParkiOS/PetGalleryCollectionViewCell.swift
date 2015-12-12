@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class PetGalleryCollectionViewCell: UICollectionViewCell
 {
     @IBOutlet weak var imageView: UIImageView!
@@ -27,7 +26,6 @@ class PetGalleryCollectionViewCell: UICollectionViewCell
             imageView.downloadedFrom(link: profilePicURL, contentMode: .ScaleAspectFill) { image in
                 self.activityIndicator.stopAnimating()
                 self.pet?.profilePic = image
-                print("downloaded image")
             }
         }
     }
@@ -50,5 +48,4 @@ class PetGalleryCollectionViewCell: UICollectionViewCell
         super.awakeFromNib()
         config()
     }
-    
 }

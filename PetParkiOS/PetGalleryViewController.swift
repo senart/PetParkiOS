@@ -51,6 +51,10 @@ class PetGalleryViewController: UIViewController, UICollectionViewDataSource, UI
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         collectionView.delegate = self
         let listPetsOperation = ListPetsOperation()

@@ -17,9 +17,12 @@
 		213907041C1C579A009DA379 /* ListPetImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213907031C1C579A009DA379 /* ListPetImages.swift */; };
 		213907061C1C5878009DA379 /* PetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213907051C1C5878009DA379 /* PetImage.swift */; };
 		213907081C1C630F009DA379 /* PetDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213907071C1C630F009DA379 /* PetDetailsCollectionViewCell.swift */; };
+		2139070A1C1C7529009DA379 /* MyPetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213907091C1C7529009DA379 /* MyPetsTableViewCell.swift */; };
+		2139070C1C1C844D009DA379 /* UploadPictureOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2139070B1C1C844D009DA379 /* UploadPictureOperation.swift */; };
+		2139070E1C1CAC0C009DA379 /* UpdatePetProfilePictureOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2139070D1C1CAC0C009DA379 /* UpdatePetProfilePictureOperation.swift */; };
 		215D56C01C1B658F0051B8C6 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D56BB1C1B658F0051B8C6 /* MenuController.swift */; };
 		215D56C31C1B658F0051B8C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D56BE1C1B658F0051B8C6 /* MapViewController.swift */; };
-		215D56C41C1B658F0051B8C6 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D56BF1C1B658F0051B8C6 /* PhotoViewController.swift */; };
+		215D56C41C1B658F0051B8C6 /* MyPetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D56BF1C1B658F0051B8C6 /* MyPetsViewController.swift */; };
 		215D56C71C1B65F90051B8C6 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215D56C61C1B65F90051B8C6 /* SWRevealViewController.m */; };
 		215D56C91C1B663B0051B8C6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215D56C81C1B663B0051B8C6 /* MapKit.framework */; };
 		215D56CE1C1B6B340051B8C6 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D56CD1C1B6B340051B8C6 /* Preferences.swift */; };
@@ -78,10 +81,13 @@
 		213907031C1C579A009DA379 /* ListPetImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPetImages.swift; sourceTree = "<group>"; };
 		213907051C1C5878009DA379 /* PetImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetImage.swift; sourceTree = "<group>"; };
 		213907071C1C630F009DA379 /* PetDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		213907091C1C7529009DA379 /* MyPetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPetsTableViewCell.swift; sourceTree = "<group>"; };
+		2139070B1C1C844D009DA379 /* UploadPictureOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadPictureOperation.swift; sourceTree = "<group>"; };
+		2139070D1C1CAC0C009DA379 /* UpdatePetProfilePictureOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePetProfilePictureOperation.swift; sourceTree = "<group>"; };
 		215D56AC1C1B5F250051B8C6 /* PetParkiOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetParkiOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		215D56BB1C1B658F0051B8C6 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		215D56BE1C1B658F0051B8C6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		215D56BF1C1B658F0051B8C6 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		215D56BF1C1B658F0051B8C6 /* MyPetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPetsViewController.swift; sourceTree = "<group>"; };
 		215D56C51C1B65F90051B8C6 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		215D56C61C1B65F90051B8C6 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		215D56C81C1B663B0051B8C6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -150,6 +156,7 @@
 			children = (
 				213906FD1C1C3D74009DA379 /* PetGalleryCollectionViewCell.swift */,
 				213907071C1C630F009DA379 /* PetDetailsCollectionViewCell.swift */,
+				213907091C1C7529009DA379 /* MyPetsTableViewCell.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -166,12 +173,12 @@
 		215D56BA1C1B5F870051B8C6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				215D56D11C1B6CDC0051B8C6 /* LoginViewController.swift */,
 				215D56BB1C1B658F0051B8C6 /* MenuController.swift */,
 				213906F21C1BB334009DA379 /* PetGalleryViewController.swift */,
 				213906FF1C1C4E4F009DA379 /* PetDetailsViewController.swift */,
-				215D56BF1C1B658F0051B8C6 /* PhotoViewController.swift */,
+				215D56BF1C1B658F0051B8C6 /* MyPetsViewController.swift */,
 				215D56BE1C1B658F0051B8C6 /* MapViewController.swift */,
-				215D56D11C1B6CDC0051B8C6 /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -263,6 +270,8 @@
 				213906F41C1C33A0009DA379 /* ListPetsOperation.swift */,
 				213907011C1C4F86009DA379 /* ListUserPetsOperation.swift */,
 				213907031C1C579A009DA379 /* ListPetImages.swift */,
+				2139070B1C1C844D009DA379 /* UploadPictureOperation.swift */,
+				2139070D1C1CAC0C009DA379 /* UpdatePetProfilePictureOperation.swift */,
 				215D56FF1C1B8A510051B8C6 /* Models */,
 			);
 			name = "API Operations";
@@ -486,13 +495,15 @@
 				213906F31C1BB334009DA379 /* PetGalleryViewController.swift in Sources */,
 				215D56C31C1B658F0051B8C6 /* MapViewController.swift in Sources */,
 				213906F51C1C33A0009DA379 /* ListPetsOperation.swift in Sources */,
+				2139070C1C1C844D009DA379 /* UploadPictureOperation.swift in Sources */,
+				2139070E1C1CAC0C009DA379 /* UpdatePetProfilePictureOperation.swift in Sources */,
 				215D56DE1C1B75C10051B8C6 /* GroupOperation.swift in Sources */,
 				215D56FE1C1B8A3E0051B8C6 /* GenerateTokenOperation.swift in Sources */,
 				215D56E11C1B75C10051B8C6 /* AlertOperation.swift in Sources */,
 				21B4DAE21C1B557000AF301D /* AppDelegate.swift in Sources */,
 				215D57011C1B8A630051B8C6 /* Token.swift in Sources */,
 				215D56F21C1B761E0051B8C6 /* BlockObserver.swift in Sources */,
-				215D56C41C1B658F0051B8C6 /* PhotoViewController.swift in Sources */,
+				215D56C41C1B658F0051B8C6 /* MyPetsViewController.swift in Sources */,
 				215D56DC1C1B75C10051B8C6 /* OperationQueue.swift in Sources */,
 				215D56F01C1B761E0051B8C6 /* OperationObserver.swift in Sources */,
 				213907001C1C4E4F009DA379 /* PetDetailsViewController.swift in Sources */,
@@ -509,6 +520,7 @@
 				215D56F11C1B761E0051B8C6 /* NetworkObserver.swift in Sources */,
 				215D56EA1C1B76140051B8C6 /* OperationCondition.swift in Sources */,
 				213907021C1C4F86009DA379 /* ListUserPetsOperation.swift in Sources */,
+				2139070A1C1C7529009DA379 /* MyPetsTableViewCell.swift in Sources */,
 				215D56FC1C1B79E70051B8C6 /* URLSessionDataTaskOperation.swift in Sources */,
 				213907081C1C630F009DA379 /* PetDetailsCollectionViewCell.swift in Sources */,
 			);
