@@ -33,14 +33,14 @@ class GenerateTokenOperation: URLSessionDataTaskOperation<Token>
         
         super.init(request: urlRequest.request)
         
-        self.name = "Login Operation"
+        name = "Login Operation"
         
         self.onSuccess = { token in
             self.delegate?.didGenerateToken(token)
         }
         
-        self.onFailure = { statusCode in
-            if statusCode == .BadRequest {
+        self.onFailure = { code in
+            if let statusCode = URLSessionResponseCode(rawValue: code) where statusCode == .BadRequest {
                 self.delegate?.accessDenied()
                 return "Unknown username or password"
             } else { return nil }

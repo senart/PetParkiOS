@@ -39,6 +39,7 @@ class PetGalleryViewController: UIViewController, UICollectionViewDataSource, UI
         if segue.identifier == "showPetDetailsViewController" {
             let petDetailsViewController = segue.destinationViewController as! PetDetailsViewController
             petDetailsViewController.pet = selectedPet
+            petDetailsViewController.isForeignUser = true
         }
     }
     

@@ -1,5 +1,5 @@
 //
-//  UpdateProfilePictureOperation.swift
+//  NoParse.swift
 //  PetParkiOS
 //
 //  Created by Gavril Tonev on 12/12/15.
@@ -8,7 +8,9 @@
 
 import Foundation
 
-class UpdatePetProfilePictureOperation
-{
+final class NoParse: Decodable {
     
+    static func decodeJSON(json: JSON) throws -> NoParse {
+        return NoParse()
+    }
 }

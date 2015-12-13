@@ -24,12 +24,11 @@ class PetDetailsViewController: UIViewController, UICollectionViewDataSource, UI
     
     private var petImages = [PetImage]() { didSet { dispatch_async(dispatch_get_main_queue()) { self.collectionView.reloadData() } } }
     var pet: Pet!
-    var foreignUser: Bool = true {
+    var isForeignUser: Bool!
+    private var foreignUser: Bool = true {
         didSet {
-            if foreignUser {
-                cameraBarButton.enabled = false
-                cameraBarButton.tintColor = UIColor.clearColor()
-            }
+            cameraBarButton.enabled = !foreignUser
+            cameraBarButton.tintColor = foreignUser ? UIColor.clearColor() : UIColor.blueColor()
         }
     }
     
@@ -81,9 +80,10 @@ class PetDetailsViewController: UIViewController, UICollectionViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        foreignUser = isForeignUser
         collectionView.delegate = self
         setupUI()
-        let lpgr : UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "handleLongPress")
+        let lpgr = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
         lpgr.minimumPressDuration = 0.5
         lpgr.delegate = self
         lpgr.delaysTouchesBegan = true
@@ -98,10 +98,22 @@ class PetDetailsViewController: UIViewController, UICollectionViewDataSource, UI
 
 extension PetDetailsViewController: UIGestureRecognizerDelegate {
     func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
-        if gestureRecognizer.state != UIGestureRecognizerState.Ended { return }
         let p = gestureRecognizer.locationInView(self.collectionView)
         if let indexPath: NSIndexPath = self.collectionView?.indexPathForItemAtPoint(p) {
+            let selectedPetImage = petImages[indexPath.row]
             
+            let alert = UIAlertController(
+                title: "\(pet.name) Profile Picture",
+                message: "Set this as a profile picture?",
+                preferredStyle: UIAlertControllerStyle.Alert
+            )
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) { action in
+                let attatchPetProfilePictureOperation = AttatchPetProfilePictureOperation(id: self.pet.id, petImageID: selectedPetImage.id)
+                self.operationQueue.addOperation(attatchPetProfilePictureOperation)
+                self.petProfilePicImageView.image = selectedPetImage.image
+                })
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
 }

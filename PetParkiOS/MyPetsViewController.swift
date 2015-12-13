@@ -37,7 +37,11 @@ class MyPetsViewController: UIViewController, UITableViewDataSource, UITableView
         if segue.identifier == "showUserPetDetailsViewController" {
             let petDetailsViewController = segue.destinationViewController as! PetDetailsViewController
             petDetailsViewController.pet = pets[tableView.indexPathForSelectedRow!.row]
-            petDetailsViewController.foreignUser = false
+            petDetailsViewController.isForeignUser = false
+        } else if segue.identifier == "popoverAddPetViewController" {
+            let popoverViewController = segue.destinationViewController as! AddPetViewController
+            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            popoverViewController.popoverPresentationController!.delegate = self
         }
     }
     
@@ -65,5 +69,11 @@ class MyPetsViewController: UIViewController, UITableViewDataSource, UITableView
 extension MyPetsViewController: ListUserPetsDelegate {
     func didListUserPets(pets: [Pet]) {
         self.pets = pets
+    }
+}
+
+extension MyPetsViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
     }
 }

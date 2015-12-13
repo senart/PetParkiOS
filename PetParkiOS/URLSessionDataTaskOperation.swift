@@ -35,24 +35,22 @@ struct URLRequest {
     
     var params: [String: AnyObject]? {
         didSet{
-            if let params = params {
-                
-                var jsonError: NSError?
-                do {
-                    request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.PrettyPrinted)
-                } catch let error as NSError {
-                    jsonError = error
-                    request.HTTPBody = nil
-                }
-                
-                assert(jsonError == nil, "There was an error when converting httpBody to JSON NSData.")
+            var jsonError: NSError?
+            do {
+                request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params!, options: .PrettyPrinted)
+            } catch let error as NSError {
+                jsonError = error
+                request.HTTPBody = nil
             }
+                
+            assert(jsonError == nil, "There was an error when converting httpBody to JSON NSData.")
         }
     }
     
     init(url: NSURL, method: String = "POST", authorize: Bool = true) {
         request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = method
+        request.addValue("application/json",forHTTPHeaderField: "Content-Type")
         if authorize { request.setValue("Bearer \(Preferences.tokenID)", forHTTPHeaderField: "Authorization") }
     }
 }
@@ -62,7 +60,7 @@ class URLSessionDataTaskOperation<T: Decodable>: Operation
     private(set) var task: NSURLSessionTask?
     
     var onSuccess: (T->Void)?
-    var onFailure: (URLSessionResponseCode->String?)?
+    var onFailure: (Int->String?)?
     
     init(request: NSURLRequest){
         super.init()
@@ -79,8 +77,7 @@ class URLSessionDataTaskOperation<T: Decodable>: Operation
             let responseCode = self.getResponseStatusCode(response)
             
             if responseCode != .Ok {
-                let message = self.onFailure?(responseCode) ?? "Server Error"
-                self.taskFailedWithError(responseCode.rawValue, message: message)
+                self.taskFailedWithError(responseCode.rawValue, message: "Server Error")
                 return
             }
             
@@ -114,7 +111,9 @@ class URLSessionDataTaskOperation<T: Decodable>: Operation
     }
     
     private func taskFailedWithError(code: Int, message: String) {
-        cancelWithError(NSError(code: code, userInfo: [NSLocalizedDescriptionKey: message]))
+        let msg = self.onFailure?(code) ?? message
+        print(message)
+        cancelWithError(NSError(code: code, userInfo: [NSLocalizedDescriptionKey: msg]))
         finish()
     }
     
