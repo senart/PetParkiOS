@@ -20,8 +20,7 @@ class AddPetViewController: UIViewController
     @IBOutlet weak var addButton: UIButton!
     
     private let operationQueue = OperationQueue()
-    // TODO: Create an API call for those
-    private var species = ["Dog","Cat", "Turtle", "Rabbit", "Parrot", "Chameleon", "Snake", "Hamster"]
+
     private var selectedSpecies = "Dog"
     private var breeds = [Breed]() { didSet { dispatch_async(dispatch_get_main_queue()) { self.breedsPicker.reloadAllComponents() } } }
     private var breedPickerEnabled: Bool = false {
@@ -48,7 +47,7 @@ class AddPetViewController: UIViewController
         optionMenu.popoverPresentationController?.sourceView = sender
         optionMenu.popoverPresentationController?.sourceRect = sender.bounds
         
-        for petSpecies in species{
+        for petSpecies in SPECIES{
             optionMenu.addAction(UIAlertAction(title: petSpecies, style: UIAlertActionStyle.Default) { alert in
                 self.selectedSpecies = petSpecies
                 self.listBreeds(petSpecies)
@@ -110,7 +109,7 @@ class AddPetViewController: UIViewController
                 ])
             valid = false
         }
-        
+
         return valid
     }
     

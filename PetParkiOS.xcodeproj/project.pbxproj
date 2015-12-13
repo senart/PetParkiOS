@@ -25,6 +25,8 @@
 		213907141C1CD061009DA379 /* CreatePetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213907131C1CD061009DA379 /* CreatePetOperation.swift */; };
 		213907161C1CD250009DA379 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213907151C1CD250009DA379 /* Breed.swift */; };
 		213907181C1CD2BC009DA379 /* ListBreedsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213907171C1CD2BC009DA379 /* ListBreedsOperation.swift */; };
+		2141F2CE1C1CF8DD003B4137 /* ListPetsBySpeciesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2141F2CD1C1CF8DD003B4137 /* ListPetsBySpeciesOperation.swift */; };
+		2141F2D01C1D0F9C003B4137 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2141F2CF1C1D0F9C003B4137 /* Species.swift */; };
 		215D56C01C1B658F0051B8C6 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D56BB1C1B658F0051B8C6 /* MenuController.swift */; };
 		215D56C31C1B658F0051B8C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D56BE1C1B658F0051B8C6 /* MapViewController.swift */; };
 		215D56C41C1B658F0051B8C6 /* MyPetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D56BF1C1B658F0051B8C6 /* MyPetsViewController.swift */; };
@@ -94,6 +96,8 @@
 		213907131C1CD061009DA379 /* CreatePetOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePetOperation.swift; sourceTree = "<group>"; };
 		213907151C1CD250009DA379 /* Breed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		213907171C1CD2BC009DA379 /* ListBreedsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListBreedsOperation.swift; sourceTree = "<group>"; };
+		2141F2CD1C1CF8DD003B4137 /* ListPetsBySpeciesOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPetsBySpeciesOperation.swift; sourceTree = "<group>"; };
+		2141F2CF1C1D0F9C003B4137 /* Species.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		215D56AC1C1B5F250051B8C6 /* PetParkiOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetParkiOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		215D56BB1C1B658F0051B8C6 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		215D56BE1C1B658F0051B8C6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 				2139070D1C1CAC0C009DA379 /* AttatchPetProfilePictureOperation.swift */,
 				213907171C1CD2BC009DA379 /* ListBreedsOperation.swift */,
 				213907131C1CD061009DA379 /* CreatePetOperation.swift */,
+				2141F2CD1C1CF8DD003B4137 /* ListPetsBySpeciesOperation.swift */,
 				215D56FF1C1B8A510051B8C6 /* Models */,
 			);
 			name = "API Operations";
@@ -307,6 +312,7 @@
 				213906F61C1C33FF009DA379 /* Pet.swift */,
 				213907051C1C5878009DA379 /* PetImage.swift */,
 				213907151C1CD250009DA379 /* Breed.swift */,
+				2141F2CF1C1D0F9C003B4137 /* Species.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -530,6 +536,7 @@
 				215D57011C1B8A630051B8C6 /* Token.swift in Sources */,
 				215D56F21C1B761E0051B8C6 /* BlockObserver.swift in Sources */,
 				215D56C41C1B658F0051B8C6 /* MyPetsViewController.swift in Sources */,
+				2141F2CE1C1CF8DD003B4137 /* ListPetsBySpeciesOperation.swift in Sources */,
 				215D56DC1C1B75C10051B8C6 /* OperationQueue.swift in Sources */,
 				215D56F01C1B761E0051B8C6 /* OperationObserver.swift in Sources */,
 				213907121C1CBB00009DA379 /* AddPetViewController.swift in Sources */,
@@ -550,6 +557,7 @@
 				213907021C1C4F86009DA379 /* ListUserPetsOperation.swift in Sources */,
 				2139070A1C1C7529009DA379 /* MyPetsTableViewCell.swift in Sources */,
 				215D56FC1C1B79E70051B8C6 /* URLSessionDataTaskOperation.swift in Sources */,
+				2141F2D01C1D0F9C003B4137 /* Species.swift in Sources */,
 				213907081C1C630F009DA379 /* PetDetailsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

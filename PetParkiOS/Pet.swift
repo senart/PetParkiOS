@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
-final class Pet: Decodable {
+final class Pet: NSObject, Decodable, MKAnnotation {
+    
+    @objc var coordinate:CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    @objc var title: String? { return name }
+    @objc var subtitle: String? { return species }
     
     let id: Int
     let species: String
