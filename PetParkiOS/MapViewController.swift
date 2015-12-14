@@ -119,12 +119,10 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         view!.leftCalloutAccessoryView = nil
         view!.rightCalloutAccessoryView = nil
         if let pet = annotation as? Pet{
+            view!.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
             if pet.profilePicURL != nil{
                 view!.leftCalloutAccessoryView = UIButton(frame: CGRect(x: 0, y: 0, width: 59, height: 59))
             }
-//            if annotation is EditableWaypoint{
-//                view!.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as! UIButton
-//            }
         }
         
         return view
@@ -162,7 +160,11 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        if !userFound { moveToLocation(mapView.userLocation.coordinate); userFound = true }
+        if !userFound {
+            let updateUserLocationOperation = UpdateUserLocationOperation(latitude: "\(userLocation.coordinate.latitude)", longitude: "\(userLocation.coordinate.longitude)")
+            operationQueue.addOperation(updateUserLocationOperation)
+            moveToLocation(mapView.userLocation.coordinate); userFound = true
+        }
     }
     
     func moveToLocation(location: CLLocationCoordinate2D, spanX: Double = 0.01, spanY: Double = 0.01, animated: Bool = true)

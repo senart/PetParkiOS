@@ -151,10 +151,12 @@ extension AddPetViewController: ListBreedsDelegate {
 
 extension AddPetViewController: CreatePetOperationDelegate {
     func didFinishCreatingPet(success: Bool) {
-        if success {
-            self.navigationController?.popViewControllerAnimated(true)
-        } else {
-             disableUI = false
+        dispatch_async(dispatch_get_main_queue()) {
+            if success {
+                self.navigationController?.popViewControllerAnimated(true)
+            } else {
+                self.disableUI = false
+            }
         }
     }
 }
