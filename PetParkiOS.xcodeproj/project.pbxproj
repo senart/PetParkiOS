@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211225CE1C1E5BB900291EB7 /* RegisterUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211225CD1C1E5BB900291EB7 /* RegisterUserOperation.swift */; };
 		213906F31C1BB334009DA379 /* PetGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213906F21C1BB334009DA379 /* PetGalleryViewController.swift */; };
 		213906F51C1C33A0009DA379 /* ListPetsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213906F41C1C33A0009DA379 /* ListPetsOperation.swift */; };
 		213906F71C1C33FF009DA379 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213906F61C1C33FF009DA379 /* Pet.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		211225CD1C1E5BB900291EB7 /* RegisterUserOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserOperation.swift; sourceTree = "<group>"; };
 		213906F21C1BB334009DA379 /* PetGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetGalleryViewController.swift; sourceTree = "<group>"; };
 		213906F41C1C33A0009DA379 /* ListPetsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPetsOperation.swift; sourceTree = "<group>"; };
 		213906F61C1C33FF009DA379 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				215D56FB1C1B79E70051B8C6 /* URLSessionDataTaskOperation.swift */,
+				211225CD1C1E5BB900291EB7 /* RegisterUserOperation.swift */,
 				215D56FD1C1B8A3E0051B8C6 /* GenerateTokenOperation.swift */,
 				213906F41C1C33A0009DA379 /* ListPetsOperation.swift */,
 				213907011C1C4F86009DA379 /* ListUserPetsOperation.swift */,
@@ -527,6 +530,7 @@
 				213906F51C1C33A0009DA379 /* ListPetsOperation.swift in Sources */,
 				213907141C1CD061009DA379 /* CreatePetOperation.swift in Sources */,
 				2139070C1C1C844D009DA379 /* UploadPictureOperation.swift in Sources */,
+				211225CE1C1E5BB900291EB7 /* RegisterUserOperation.swift in Sources */,
 				2139070E1C1CAC0C009DA379 /* AttatchPetProfilePictureOperation.swift in Sources */,
 				215D56DE1C1B75C10051B8C6 /* GroupOperation.swift in Sources */,
 				215D56FE1C1B8A3E0051B8C6 /* GenerateTokenOperation.swift in Sources */,

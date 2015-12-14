@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Preferences.reset()  // FIX: delete this
         Preferences.registerDefaults()
-        checkForUserDetails()
+        //checkForUserDetails()
         
         return true
     }
@@ -54,17 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    struct Redirect { //Handles redictions with a generic function. There is an optional completion handler if the created view is needed
-        static func toViewControllerWithIdentifier<T: UIViewController>(identifier: String, ofType: T, animated: Bool = true, completionHandler: ((T)->Void)? = nil) {
-            let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-            let rootVC = (UIApplication.sharedApplication().delegate as! AppDelegate).window!.rootViewController as! UINavigationController
-            let targetVC = storyboard.instantiateViewControllerWithIdentifier(identifier) as? T
-            if let targetVC = targetVC {
-                rootVC.pushViewController(targetVC, animated: animated)
-                completionHandler?(targetVC)
-            }
-        }
-    }
+
 
 }
 

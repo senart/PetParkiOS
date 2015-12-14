@@ -119,12 +119,10 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         view!.leftCalloutAccessoryView = nil
         view!.rightCalloutAccessoryView = nil
         if let pet = annotation as? Pet{
+            view!.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
             if pet.profilePicURL != nil{
                 view!.leftCalloutAccessoryView = UIButton(frame: CGRect(x: 0, y: 0, width: 59, height: 59))
             }
-//            if annotation is EditableWaypoint{
-//                view!.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as! UIButton
-//            }
         }
         
         return view

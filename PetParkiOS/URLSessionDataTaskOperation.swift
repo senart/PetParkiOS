@@ -61,8 +61,9 @@ class URLSessionDataTaskOperation<T: Decodable>: Operation
     
     var onSuccess: (T->Void)?
     var onFailure: (Int->String?)?
+    var onNoParse: (()->Void)?
     
-    init(request: NSURLRequest){
+    init(request: NSURLRequest, noParse: Bool = false){
         super.init()
         
         name = "URL Data Task"
@@ -77,27 +78,30 @@ class URLSessionDataTaskOperation<T: Decodable>: Operation
             let responseCode = self.getResponseStatusCode(response)
             
             if responseCode != .Ok {
-                self.taskFailedWithError(responseCode.rawValue, message: "Server Error")
+                self.taskFailedWithError(responseCode.rawValue, message: "\(responseCode)")
                 return
             }
             
-            do {
-                let json: AnyObject = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-                let response = try T.decodeJSON(json)
-                
-                self.onSuccess?(response)
-            }
-            catch DecodeError.MissingKey(let msg) {
-                self.taskFailedWithError(0, message: msg)
-                return
-            }
-            catch DecodeError.TypeMismatch(let msg) {
-                self.taskFailedWithError(1, message: msg)
-                return
-            }
-            catch {
-                self.taskFailedWithError(2, message: "No json object from server")
-                return
+            if noParse { self.onNoParse?() }
+            else {
+                do {
+                    let json: AnyObject = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+                    let response = try T.decodeJSON(json)
+                    
+                    self.onSuccess?(response)
+                }
+                catch DecodeError.MissingKey(let msg) {
+                    self.taskFailedWithError(0, message: msg)
+                    return
+                }
+                catch DecodeError.TypeMismatch(let msg) {
+                    self.taskFailedWithError(1, message: msg)
+                    return
+                }
+                catch {
+                    self.taskFailedWithError(2, message: "No json object from server")
+                    return
+                }
             }
             
             self.finish()

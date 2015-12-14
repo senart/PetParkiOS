@@ -34,7 +34,7 @@ class CreatePetOperation: URLSessionDataTaskOperation<NoParse>
         
         name = "Create Pet Operation"
         
-        onSuccess = { noParse in
+        onSuccess = { _ in
             self.delegate?.didFinishCreatingPet(true)
         }
         onFailure = { _ in

@@ -42,3 +42,14 @@ extension NSMutableData {
         appendData(data!)
     }
 }
+
+struct Redirect { //Handles redictions with a generic function. There is an optional completion handler if the created view is needed
+    static func toViewControllerWithIdentifier<T: UIViewController>(identifier: String, ofType: T, animated: Bool = true, completionHandler: ((T)->Void)? = nil) {
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let rootVC = (UIApplication.sharedApplication().delegate as! AppDelegate).window!.rootViewController as! UINavigationController
+        if let targetVC = storyboard.instantiateViewControllerWithIdentifier(identifier) as? T {
+            rootVC.pushViewController(targetVC, animated: animated)
+            completionHandler?(targetVC)
+        }
+    }
+}
