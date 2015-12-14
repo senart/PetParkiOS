@@ -11,7 +11,7 @@ import UIKit
 class MenuController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 5 {
+        if indexPath.row == 4 {
             Preferences.reset()
             exit(0)
         }

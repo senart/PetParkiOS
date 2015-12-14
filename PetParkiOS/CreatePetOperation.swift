@@ -41,5 +41,9 @@ class CreatePetOperation: URLSessionDataTaskOperation<NoParse>
             self.delegate?.didFinishCreatingPet(false)
             return nil
         }
+        
+        onNoParse = {
+            self.delegate?.didFinishCreatingPet(true)
+        }
     }
 }

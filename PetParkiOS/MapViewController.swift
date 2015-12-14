@@ -160,7 +160,11 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        if !userFound { moveToLocation(mapView.userLocation.coordinate); userFound = true }
+        if !userFound {
+            let updateUserLocationOperation = UpdateUserLocationOperation(latitude: "\(userLocation.coordinate.latitude)", longitude: "\(userLocation.coordinate.longitude)")
+            operationQueue.addOperation(updateUserLocationOperation)
+            moveToLocation(mapView.userLocation.coordinate); userFound = true
+        }
     }
     
     func moveToLocation(location: CLLocationCoordinate2D, spanX: Double = 0.01, spanY: Double = 0.01, animated: Bool = true)

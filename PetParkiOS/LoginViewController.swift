@@ -24,9 +24,9 @@ class LoginViewController: UIViewController
     
     @IBAction func loginTapped(sender: UIButton) {
         
-        emailTextField.text = "asd@ASdASD.c"  // TODO: REMOVE THIS
-        passwordTextField.text = PASSWORD
-        repeatPasswordTextField.text = PASSWORD
+        //emailTextField.text = "asd@ASdASD.c"  // TODO: REMOVE THIS
+        //passwordTextField.text = PASSWORD
+        //repeatPasswordTextField.text = PASSWORD
         
         view.endEditing(true)
         if validateFields() {
